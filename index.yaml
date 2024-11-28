@@ -3,12 +3,12 @@ entries:
   java-web-app:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-28T14:40:13.8425288Z"
+    created: "2024-11-28T14:52:16.5308001Z"
     description: A Helm chart for Kubernetes
-    digest: dddd1cdabbab13e88f26e9bb8613da78966afad40abe92b70c05b4e3552ddc2a
+    digest: 4c2ea8f945085c094f7efc8470a79a57da089945895586f2ec05f624e514c69d
     name: java-web-app
     type: application
     urls:
-    - https://madilshahzad.github.io/helm-charts/java-web-app-0.1.0.tgz
+    - https://madilshahzad.github.io/helm_charts/java-web-app-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-28T14:40:13.8386532Z"
+generated: "2024-11-28T14:52:16.5297467Z"

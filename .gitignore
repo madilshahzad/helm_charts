@@ -1,0 +1,10 @@
+# Helm-related files
+*.tgz
+*.lock
+.chart-releaser.yaml
+/reports/
+/charts/
+/tmpcharts/
+/helm-cache/
+/helm/repository/cache/
+/helm/repository/local/

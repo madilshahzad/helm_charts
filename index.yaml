@@ -9,6 +9,6 @@ entries:
     name: java-web-app
     type: application
     urls:
-    - https://github.com/madilshahzad/helm_charts/blob/main/java-web-app-0.1.0.tgz
+    - https://madilshahzad.github.io/helm_charts/java-web-app-0.1.0.tgz
     version: 0.1.0
 generated: "2024-11-28T14:52:16.5297467Z"

@@ -5,7 +5,7 @@ replicaCount: 2
 image:
   repository: 211125460769.dkr.ecr.us-east-1.amazonaws.com/java-web-app
   pullPolicy: Always
-  tag: "latest"
+  tag: "v10"
 
 imagePullSecrets:
   - name: aws-ecr-secret
@@ -45,15 +45,15 @@ ingress:
       hosts:
         - java-web-app.example.com
 
-resources: {}
-livenessProbe:
-  httpGet:
-    path: /health
-    port: 8080
-readinessProbe:
-  httpGet:
-    path: /ready
-    port: 8080
+# resources: {}
+# livenessProbe:
+#   httpGet:
+#     path: /
+#     port: 8080
+# readinessProbe:
+#   httpGet:
+#     path: /
+#     port: 8080
 
 autoscaling:
   enabled: false

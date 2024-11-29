@@ -138,5 +138,56 @@ To uninstall the `java-web-app` release:
 helm uninstall java-web-app -n my-namespace
 ```
 
-This command removes all resources associated with the chart.
+
+## Makefile
+
+A `Makefile` can be used to automate the deployment process of the Helm chart. Below is an example `Makefile` for this Helm chart:
+
+```makefile
+# Variables
+NAMESPACE ?= my-namespace
+RELEASE_NAME ?= java-web-app
+CHART_DIR ?= ./helm-charts/java-web-app
+DOCKER_REPOSITORY ?= <docker-repository-url>
+IMAGE_TAG ?= <image-tag>
+
+# Default target
+.PHONY: all
+all: install
+
+# Install the Helm chart
+.PHONY: install
+install:
+    helm upgrade --install $(RELEASE_NAME) $(CHART_DIR) \
+        --namespace $(NAMESPACE) \
+        --create-namespace \
+        --set image.repository=$(DOCKER_REPOSITORY) \
+        --set image.tag=$(IMAGE_TAG)
+
+# Uninstall the Helm chart
+.PHONY: uninstall
+uninstall:
+    helm uninstall $(RELEASE_NAME) -n $(NAMESPACE)
+
+# Verify the deployment
+.PHONY: verify
+verify:
+    kubectl get pods -n $(NAMESPACE)
+    kubectl get svc -n $(NAMESPACE)
+    kubectl get ingress -n $(NAMESPACE)
+
+# Clean up
+.PHONY: clean
+clean: uninstall
+    kubectl delete namespace $(NAMESPACE)
+```
+
+### Usage
+
+1. **Install the Chart**: Run `make install` to install the Helm chart.
+2. **Uninstall the Chart**: Run `make uninstall` to uninstall the Helm chart.
+3. **Verify Deployment**: Run `make verify` to check the status of the deployment.
+4. **Clean Up**: Run `make clean` to uninstall the chart and delete the namespace.
+
+Replace `<docker-repository-url>` and `<image-tag>` with the correct values for your Docker image.
 
